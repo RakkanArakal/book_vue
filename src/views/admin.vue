@@ -129,6 +129,7 @@ export default {
       },
     }
   },
+  ///
   components: {
     Navbar
   },
