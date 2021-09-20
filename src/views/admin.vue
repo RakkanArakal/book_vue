@@ -134,7 +134,6 @@ export default {
     Navbar
   },
   computed:{
-    //
     counts() {
       return this.books.length;
     },
