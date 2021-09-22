@@ -78,7 +78,7 @@ export default {
         { name: '舞蹈戏剧', link: '/home' },
         { name: '农业科学', link: '/home' },
         { name: '大专文教', link: '/home' },
-        { name: '政治军事', link: '/home' },
+        { name: '大型多人在线交流中心', link: '/chatRoom' },
       ],
     }
   },

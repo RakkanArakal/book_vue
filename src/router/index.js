@@ -13,6 +13,7 @@ import Myorder from '../views/myorder'
 import Statistic from '../views/statistic'
 import Hotsell from '../views/hotSell'
 import CustomerSell from '../views/customerSell'
+import ChatRoom from '../views/chatRoom'
 // const Login = () => import "../components/login"
 Vue.use(Router)
 
@@ -68,6 +69,10 @@ const routes = [
     {
         path:'/customersell',
         component: CustomerSell
+    },
+    {
+        path:'/chatRoom',
+        component: ChatRoom
     }
 ]
 const router = new Router({
