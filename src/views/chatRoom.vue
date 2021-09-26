@@ -67,7 +67,7 @@ export default {
   created() {
     this.userName = localStorage.getItem("userName")
     this.userId = localStorage.getItem("userId")
-    var url = "ws://localhost:8080/websocket/{" + this.userName + "}"
+    var url = "ws://localhost:8888/chatRoom/" + this.userName ;
     this.webScoket = new WebSocket(url);
     console.log(this.webScoket)
     this.webScoket.onmessage = onmessage;
