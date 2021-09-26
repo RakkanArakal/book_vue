@@ -51,66 +51,27 @@ export default {
     return{
       userId:null,
       userName:null,
-      cartList: this.$store.state.cart,
+      userList: null,
+      webScoket : null,
     }
   },
   components: {
     Navbar
   },
   computed:{
-    totalPrice(){
-      var num = 0;
-      for (var i = 0; i < this.cartList.length; i++) {
-        num += this.cartList[i].price;
-      }
-      return num;
-    },
-    counts(){
-      return this.cartList.length;
-    }
+
   },
   methods: {
-    delGoods(index) {
-      this.cartList.splice(index, 1);
-    },
-    async addOrder() {
 
-      let BookOrder = this.cartList
-          .map((item) => {
-            return {
-              bookname: item.name,
-              bookid: item.id,
-              price: item.price,
-              time: '',
-              orderid: "",
-            };
-          });
-      console.log(BookOrder)
-      let res = await this.$axios.post('addOrder',{
-        orderDetail:JSON.stringify(BookOrder),
-        Order:{
-          userid:this.userId,
-          username:this.userName,
-          totalprice:this.totalPrice,
-          time:''
-        }
-      })
-      console.log(res)
-      if(res.data =="success"){
-        for(var i = 0;this.cartList.length; i++)
-          this.cartList.splice(0, 1);
-        alert("下单成功");
-      }
-      else{
-        alert(res.data)
-      }
-
-
-    },
   },
   created() {
     this.userName = localStorage.getItem("userName")
     this.userId = localStorage.getItem("userId")
+    var url = "ws://localhost:8080/websocket/{" + this.userName + "}"
+    this.webScoket = new WebSocket(url);
+    console.log(this.webScoket)
+    this.webScoket.onmessage = onmessage;
+
   }
 }
 
