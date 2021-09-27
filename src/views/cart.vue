@@ -83,7 +83,6 @@ export default {
       this.cartList.splice(index, 1);
     },
     async addOrder() {
-
       let BookOrder = this.cartList
           .map((item) => {
             return {

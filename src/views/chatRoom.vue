@@ -62,7 +62,9 @@ export default {
 
   },
   methods: {
-
+    connect(){
+      console.log(12312312123)
+    }
   },
   created() {
     this.userName = localStorage.getItem("userName")
@@ -70,20 +72,20 @@ export default {
     var url = "ws://localhost:8888/chatRoom/" + this.userName ;
     this.webScoket = new WebSocket(url);
     console.log(this.webScoket)
-    this.webScoket.onmessage = onmessage;
-
-  }
+    this.connect()
+  },
+  destroyed: function () {
+    var Msg = {};
+    Msg.type = "leave";
+    Msg.msg = this.userName;
+    var json = JSON.stringify(Msg);
+    this.webScoket.send(json)
+  },
 }
 
 </script>
 
 <style lang="css">
-.del-goods,a{
-  cursor: pointer;
-}
-ul{
-  list-style-type: none;
-}
 @import "../assets/css/bootstrap.css";
 @import "../assets/css/StoreStyle.css";
 #content_bottom{
