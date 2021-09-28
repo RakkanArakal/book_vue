@@ -61,7 +61,6 @@ export default {
   created(){
     localStorage.removeItem("userName");
     localStorage.removeItem("userId");
-    var t = this;
     var key;
     document.onkeydown = function(e){
       if(window.event == undefined){
@@ -70,7 +69,7 @@ export default {
         key = window.event.keyCode;
       }
       if(key == 13){
-        t.logintoHome();
+        this.logintoHome();
       }
     }
   },
