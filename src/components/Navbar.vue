@@ -33,6 +33,7 @@
     </div>
 
       <div id="search">
+        <span style="padding-right: 54%">访客计数：{{count}} </span>
               <span>搜索</span>
               <input type="text" />
               <input img :src="searchimg" type="image"/>
@@ -49,8 +50,10 @@ export default {
   name: "navbar",
   data(){
     return{
+      searchKey:"",
       username:"",
       isAdmin:false,
+      count:null,
       logoimg:require("../assets/img/LOGO.png"),
       adminimg:require("../assets/img/admin.png"),
       cartimg:require("../assets/img/cart1.png"),
@@ -77,7 +80,7 @@ export default {
         { name: '历史地理', link: '/home' },
         { name: '舞蹈戏剧', link: '/home' },
         { name: '农业科学', link: '/home' },
-        { name: '大专文教', link: '/home' },
+        { name: '全文搜索', link: '/fullText' },
         { name: '大型多人在线交流中心', link: '/chatRoom' },
       ],
     }
@@ -97,10 +100,12 @@ export default {
         localStorage.removeItem("userId");
       }
       this.$router.push(item.link)
-    }
+    },
   },
   created() {
+    console.log(localStorage)
     this.username = localStorage.getItem("userName");
+    this.count = localStorage.getItem("count");
     if(this.username == "admin")
       this.isAdmin = true;
   },

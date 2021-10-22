@@ -14,6 +14,7 @@ import Statistic from '../views/statistic'
 import Hotsell from '../views/hotSell'
 import CustomerSell from '../views/customerSell'
 import ChatRoom from '../views/chatRoom'
+import FullText from '../views/fullText'
 // const Login = () => import "../components/login"
 Vue.use(Router)
 
@@ -45,6 +46,10 @@ const routes = [
     {
         path:'/Books',
         component: Admin
+    },
+    {
+        path:'/fullText',
+        component: FullText
     },
     {
         path:'/account',

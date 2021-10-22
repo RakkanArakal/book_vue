@@ -91,13 +91,13 @@ export default {
   },
   methods:{
     jumpDetail (info) {
-      this.$axios("getBookById?id="+info.id).then(res=>{
+      this.$axios("Book/"+info.id).then(res=>{
         this.$store.commit('toDetail', res.data)
         this.$router.push('/detail')
       })
     },
     page(currentPage){
-      this.$axios.get("getbook/"+currentPage+"/8").then(res=>{
+      this.$axios.get("book/"+currentPage+"/8").then(res=>{
         this.books = res.data.content
         this.total = res.data.totalElements
       })
@@ -106,7 +106,7 @@ export default {
   created() {
     // this.$axios.get("getbook").then(res=>{
     //   this.books = res.data
-    this.$axios.get("getbook/1/8").then(res=>{
+    this.$axios.get("book/1/8").then(res=>{
       this.books = res.data.content
       this.total = res.data.totalElements
     })

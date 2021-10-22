@@ -162,7 +162,7 @@ export default {
       const _this = this;
       this.dialogFormVisible = false;
 
-      this.$axios.post('editBook', this.entity).then(function (){
+      this.$axios.post('Book', this.entity).then(function (){
         alert('《'+_this.entity.name+'》修改成功!');
         window.location.reload();
 
@@ -174,7 +174,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        this.$axios.delete('deleteBook/' + item.id).then(function () {
+        this.$axios.delete('Book/' + item.id).then(function () {
           // _this.$message('《' + item.name + '》删除成功!跳转至书籍索引页');
           window.location.reload();
         })
@@ -191,7 +191,7 @@ export default {
     }
   },
   created() {
-    this.$axios.get("getbook").then(res=>{
+    this.$axios.get("book").then(res=>{
       this.books = res.data
     });
         if(localStorage.getItem("userName") == "admin")

@@ -39,6 +39,7 @@ export default {
             else {
               localStorage.setItem('userName', res.data.account)
               localStorage.setItem('userId', res.data.id)
+              localStorage.setItem('count', res.data.count)
               this.$router.push('/home')
               console.log(this.$store.state.cart);
               this.$store.state.cart.splice(this.$store.state.cart.length)
