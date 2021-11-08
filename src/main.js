@@ -9,6 +9,8 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = "http://127.0.0.1:8888/home/"
+
+
 Vue.prototype.$axios = axios
 Vue.prototype.$qs = qs;
 let myDateFormat = function(fmt, date) {

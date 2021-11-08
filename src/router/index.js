@@ -15,6 +15,7 @@ import Hotsell from '../views/hotSell'
 import CustomerSell from '../views/customerSell'
 import ChatRoom from '../views/chatRoom'
 import FullText from '../views/fullText'
+import AuthorSearch from '../views/authorSearch'
 // const Login = () => import "../components/login"
 Vue.use(Router)
 
@@ -50,6 +51,10 @@ const routes = [
     {
         path:'/fullText',
         component: FullText
+    },
+    {
+        path:'/authorSearch',
+        component: AuthorSearch
     },
     {
         path:'/account',

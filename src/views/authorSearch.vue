@@ -5,7 +5,7 @@
       <div id="content_bottom" style="height: auto">
         <ul class="breadcrumb" style="color: rgb(212, 106, 64)">
           <li><a href="./home">首页</a></li>
-          <li class="active">全文搜索</li>
+          <li class="active">作者搜索</li>
         </ul>
         <div class="container" >
           <div class="row clearfix" style="width:100%;">
@@ -18,14 +18,16 @@
                 <thead>
                 <tr style="background-color: #C3F0FF">
                   <th style="width: 220px;">书名</th>
-                  <th style="width: 420px;" >简介</th>
+                  <th style="width: 220px;">作者</th>
+                  <th style="width: 135px;">isbn编号</th>
                   <th style="width: 50px;">库存</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr v-for="(item,index) in filteredArticles" :key="index">
                   <td >{{item.name}}</td>
-                  <td >{{item.intro}}</td>
+                  <td >{{item.author}}</td>
+                  <td >{{item.isbn}}</td>
                   <td >{{item.stock}}</td>
                 </tr>
                 </tbody>
@@ -90,16 +92,23 @@ export default {
   },
   methods: {
     searchBooks(){
+      const _this = this;
       if(this.searchKey == "")
         this.$axios.get("book").then(res=>{
           console.log(res)
           this.books = res.data
         })
       else
-      this.$axios.post('searchBooks', this.searchKey).then(res=>{
-        console.log(res)
-        this.books = res.data
-      })
+        this.$axios({
+          method: 'get', //post
+          url:'http://localhost:10086/book/search/'+this.searchKey,
+        }).then(function(res) {
+          console.log(res)
+          if(res.data[0] == null)
+            return alert("抱歉，没有查询到该书籍")
+          else
+          _this.books = res.data
+        })
     }
   },
   created() {

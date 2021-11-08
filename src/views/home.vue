@@ -104,8 +104,6 @@ export default {
     }
   },
   created() {
-    // this.$axios.get("getbook").then(res=>{
-    //   this.books = res.data
     this.$axios.get("book/1/8").then(res=>{
       this.books = res.data.content
       this.total = res.data.totalElements

@@ -79,7 +79,7 @@ export default {
         { name: '亲子教育', link: '/home' },
         { name: '历史地理', link: '/home' },
         { name: '舞蹈戏剧', link: '/home' },
-        { name: '农业科学', link: '/home' },
+        { name: '作者搜索', link: '/authorSearch' },
         { name: '全文搜索', link: '/fullText' },
         { name: '大型多人在线交流中心', link: '/chatRoom' },
       ],

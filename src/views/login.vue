@@ -1,9 +1,9 @@
 <template>
     <div class="sign-div">
       <h1>Book Store</h1>
-      <input class="sign-text" type="text" placeholder="用户名"  v-model="username">
-      <input class="sign-text" type="password" placeholder="密码" v-model="password" @keyup.enter="submit()">
-      <input class="sign-btn" type="button" value="登录" @click="logintoHome" @keyup.enter="submit()" >
+      <input class="sign-text" type="text"  placeholder="用户名"  v-model="user.account">
+      <input class="sign-text" type="password" placeholder="密码" v-model="user.password" @keyup.enter="logintoHome()">
+      <input class="sign-btn" type="button" value="登录" @click="logintoHome" >
       <a href="./signup">注册用户</a>
 <!--      <a href="./admin">Admin</a>-->
     </div>
@@ -14,20 +14,26 @@ export default {
   name: "login",
   data () {
     return {
-      username: '',
-      password: ''
+      user: {
+        id: '',
+        account: '',
+        password: '',
+        checkPass: '',
+        email: '',
+        ban: 0,
+      },
     }
   },
 
   methods: {
     logintoHome() {
-      console.log(this.username)
-      console.log(this.password)
-      if (!this.username || !this.password)
+      console.log(this.user.account)
+      console.log(this.user.password)
+      const _this = this
+      if (!this.user.account || !this.user.password)
         return alert("账号或密码为空")
       this.$axios
-          .get("Login?userName=" + this.username + "&password=" + this.password)
-          .then(res => {
+          .post('Login' , _this.user).then(res => {
             console.log(res);
             if (!res || !res.data) {
               return alert("账号或密码错误")
@@ -49,30 +55,10 @@ export default {
             }
           })
     },
-    submit() {
-      this.$axios({
-      }).then((res) => {
-        if (res.code === 1) {
-          //登录成功后禁止按enter键再次重新登录
-          document.onkeydown = undefined;
-        }
-      })
-    },
   },
   created(){
     localStorage.removeItem("userName");
     localStorage.removeItem("userId");
-    var key;
-    document.onkeydown = function(e){
-      if(window.event == undefined){
-        key = e.keyCode;
-      }else{
-        key = window.event.keyCode;
-      }
-      if(key == 13){
-        this.logintoHome();
-      }
-    }
   },
 
 }
