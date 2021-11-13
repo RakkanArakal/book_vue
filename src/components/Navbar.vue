@@ -78,7 +78,7 @@ export default {
         { name: '首页',    link: '/home' },
         { name: '亲子教育', link: '/home' },
         { name: '历史地理', link: '/home' },
-        { name: '舞蹈戏剧', link: '/home' },
+        { name: '标签搜索', link: '/labelSearch' },
         { name: '作者搜索', link: '/authorSearch' },
         { name: '全文搜索', link: '/fullText' },
         { name: '大型多人在线交流中心', link: '/chatRoom' },

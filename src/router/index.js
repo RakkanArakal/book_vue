@@ -5,17 +5,18 @@ import Home from '../views/home'
 import Login from '../views/login'
 import Signup from '../views/signup'
 import Detail from '../views/detail'
-import Cart from '../views/cart'
-import Admin from '../views/admin'
-import Account from '../views/account'
-import Addbook from '../views/addBook'
-import Myorder from '../views/myorder'
-import Statistic from '../views/statistic'
-import Hotsell from '../views/hotSell'
-import CustomerSell from '../views/customerSell'
-import ChatRoom from '../views/chatRoom'
-import FullText from '../views/fullText'
-import AuthorSearch from '../views/authorSearch'
+import Cart from '../views/viceNavbar/cart'
+import Admin from '../views/viceNavbar/admin'
+import Account from '../views/viceNavbar/account'
+import Addbook from '../views/viceNavbar/addBook'
+import Myorder from '../views/viceNavbar/myorder'
+import Statistic from '../views/viceNavbar/statistic'
+import Hotsell from '../views/viceNavbar/hotSell'
+import CustomerSell from '../views/viceNavbar/customerSell'
+import ChatRoom from '../views/mainNavbar/chatRoom'
+import FullText from '../views/mainNavbar/fullText'
+import AuthorSearch from '../views/mainNavbar/authorSearch'
+import LabelSearch from '../views/mainNavbar/labelSearch'
 // const Login = () => import "../components/login"
 Vue.use(Router)
 
@@ -55,6 +56,10 @@ const routes = [
     {
         path:'/authorSearch',
         component: AuthorSearch
+    },
+    {
+        path:'/labelSearch',
+        component: LabelSearch
     },
     {
         path:'/account',
