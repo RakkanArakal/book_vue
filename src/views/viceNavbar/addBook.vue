@@ -88,11 +88,10 @@ export default {
       const _this = this;
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log(this.ruleForm)
           this.$axios.post('Book',this.ruleForm).then(function (resp){
             if(resp.data == 'success'){
               _this.$message('《'+_this.ruleForm.name+'》添加成功!跳转至书籍索引页');
-              _this.$router.push('/admin');
+              _this.$router.push('/Books');
             }
           })
         } else {

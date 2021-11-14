@@ -96,7 +96,7 @@ export default {
           this.books = res.data
         })
       else
-      this.$axios.post('searchBooks', this.searchKey).then(res=>{
+      this.$axios.post('fullTextSearch', this.searchKey).then(res=>{
         console.log(res)
         this.books = res.data
       })
