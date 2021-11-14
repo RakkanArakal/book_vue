@@ -27,7 +27,7 @@
                 <tr v-for="(item,index) in filteredArticles" :key="index">
                   <td >{{item.name}}</td>
                   <td >{{item.author}}</td>
-                  <td >{{item.label}}</td>
+                  <td >{{item.bookLabel}}</td>
                   <td >{{item.stock}}</td>
                 </tr>
                 </tbody>
