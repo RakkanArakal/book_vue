@@ -2,17 +2,29 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 import axios from 'axios'
+import VueAxios from 'vue-axios'
 import store from './store'
 import qs from 'qs';
 import ElementUI from 'element-ui'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = "https://127.0.0.1:8888/home/"
+var axio = axios.create({
+  baseURL:"http://localhost:7999/home/",
+  headers:{
+    'Content-Type': 'application/json;charset=UTF-8'
+  },
+  withCredentials:true,
+  crossDomain: true,
+});
 
+// axios.defaults.baseURL = "http://127.0.0.1:7999/home/"
+// axios.defaults.withCredentials = true;
+// axios.defaults.crossDomain = true;
 
-Vue.prototype.$axios = axios
+Vue.prototype.$axios = axio
 Vue.prototype.$qs = qs;
+Vue.use(VueAxios, axios);
 let myDateFormat = function(fmt, date) {
   var o = {
     "M+": date.getMonth() + 1, //月份

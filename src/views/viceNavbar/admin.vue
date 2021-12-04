@@ -163,6 +163,7 @@ export default {
       this.dialogFormVisible = false;
 
       this.$axios.post('Book', this.entity).then(function (){
+        // console.log(_this.entity)
         alert('《'+_this.entity.name+'》修改成功!');
         window.location.reload();
       })

@@ -47,7 +47,7 @@ export default {
               localStorage.setItem('userId', res.data.id)
               localStorage.setItem('count', res.data.count)
               this.$router.push('/home')
-              console.log(this.$store.state.cart);
+              // console.log(this.$store.state.cart);
               this.$store.state.cart.splice(this.$store.state.cart.length)
               for(var i = 0;this.$store.state.cart.length; i++)
                 this.$store.state.cart.splice(0, 1);
